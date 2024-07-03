@@ -91,3 +91,32 @@ exports.getUser = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+
+// Get logged in user
+exports.infoUser = async (req, res) => {
+    try {
+        info = {
+            "routes": [
+              {
+                "method": "POST",
+                "url": "api/users/register",
+                "description": "Register user"
+              },
+              {
+                "method": "POST",
+                "url": "api/users/login",
+                "description": "Login user"
+              },
+              {
+                "method": "GET",
+                "url": "api/users/me",
+                "description": "Get logged in user"
+              }
+            ]
+          }
+        res.json(info)
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
